@@ -16,9 +16,9 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     private var reuseIdentifier = "Cell"
     private var question = ""
     private var options = [String]()
-    private var selection: ((String) -> Void)? = nil
+    private var selection: (([String]) -> Void)? = nil
   
-    convenience init(question: String, options: [String], selection: @escaping (String) -> Void) {
+    convenience init(question: String, options: [String], selection: @escaping ([String]) -> Void) {
         self.init()
         self.question = question
         self.options = options
@@ -36,15 +36,24 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = dequeueCell(in: tableView)
-        
         cell.textLabel?.text = options[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selection?(options[indexPath.row])
+        selection?(selectedOptions(in: tableView))
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        selection?(selectedOptions(in: tableView))
+    }
+    
+    private func selectedOptions(in  tableView: UITableView) -> [String] {
+        guard let indexPath = tableView.indexPathsForSelectedRows else {
+            return []
+        }
+        return indexPath.map { options[$0.row] }
     }
     
     func dequeueCell(in tableView: UITableView) -> UITableViewCell {

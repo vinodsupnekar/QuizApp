@@ -42,11 +42,14 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selection?(selectedOptions(in: tableView))
+         selection?(selectedOptions(in: tableView))
+        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        selection?(selectedOptions(in: tableView))
+        if tableView.allowsMultipleSelection {
+         selection?(selectedOptions(in: tableView))
+        }
     }
     
     private func selectedOptions(in  tableView: UITableView) -> [String] {

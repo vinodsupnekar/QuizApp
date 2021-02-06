@@ -29,7 +29,7 @@ class QuestionViewControllerTest: XCTestCase {
         XCTAssertEqual(makeSUT(options: ["A1","A2","A3"]).tableView.title(at: 2), "A3")
     }
     
-    func test_optionsSeleted_notifiedDelegate() {
+    func test_optionsSeleted_withSingleSelction_notifiesDelegateWithLastSelection() {
         var receivedAnswer = [String]()
         
         let sut = makeSUT(options: ["A1"]) {
@@ -40,6 +40,21 @@ class QuestionViewControllerTest: XCTestCase {
         
         XCTAssertEqual(receivedAnswer , ["A1"])
     }
+     
+    func test_optionsDeSeleted_withSingleSelction_doesNotifiesDelegate() {
+        var callbackCount = 0
+        let sut = makeSUT(options: ["A1","A2"]) {_ in
+            callbackCount += 1
+        }
+        
+        sut.tableView.select(row: 0)
+        XCTAssertEqual(callbackCount, 1)
+        
+        sut.tableView.deselect(row: 0)
+        XCTAssertEqual(callbackCount, 1)
+
+    }
+    
     
     func test_optionsSeleted_withTwoOptions_notifiesDelegateWhenSelectionChanges() {
         var receivedAnswer = [String]()

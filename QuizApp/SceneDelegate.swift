@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         print($0)
         }
         _ = viewController.view
-        viewController.tableView.allowsMultipleSelection = true
+        viewController.tableView.allowsMultipleSelection = false
 
         let navigation = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigation

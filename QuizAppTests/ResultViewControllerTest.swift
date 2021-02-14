@@ -21,7 +21,7 @@ class ResultViewControllerTest: XCTestCase {
     }
     
     func test_viewDidLoad_withCorrectAnswer_rendersCorrectAnswerCell() {
-        let sut = makeSUT( answers: [PresentableAnswer(isCorrect: true)])
+        let sut = makeSUT( answers: [makeAnswer(isCorrect: true)])
 
         let cell = sut.tableView.cell(at: 0) as? CorrectAnswerCell
 
@@ -29,8 +29,44 @@ class ResultViewControllerTest: XCTestCase {
 
     }
     
+    func test_viewDidLoad_withCorrectAnswer_rendersQuestionText() {
+        let answer = makeAnswer(question: "Q1", isCorrect:true)
+
+        let sut = makeSUT( answers: [answer])
+
+        let cell = sut.tableView.cell(at: 0) as? CorrectAnswerCell
+
+        XCTAssertNotNil(cell?.questionLable.text, "Q1")
+
+    }
+    
+    func test_viewDidLoad_withCorrectAnswer_configueresCell() {
+        let answer = makeAnswer(question: "Q1",answer: "A1", isCorrect:true)
+
+        let sut = makeSUT( answers: [answer])
+
+        let cell = sut.tableView.cell(at: 0) as? CorrectAnswerCell
+        
+        XCTAssertNotNil(cell)
+        XCTAssertNotNil(cell?.questionLable.text, "A1")
+        XCTAssertNotNil(cell?.answerLabel.text, "A1")
+    }
+    
+    func test_viewDidLoad_withWrongAnswer_configueresCell() {
+        let answer = makeAnswer(question: "Q1", answer: "A1", isCorrect: false)
+
+        let sut = makeSUT( answers: [answer])
+
+        let cell = sut.tableView.cell(at: 0) as? WrongAnswerCell
+        
+        XCTAssertNotNil(cell)
+        XCTAssertNotNil(cell?.questionLabel.text, "A1")
+        XCTAssertNotNil(cell?.correctAnswerLabel.text, "A1")
+    }
+    
+    
     func test_viewDidLoad_withWrongAnswer_rendersWrongAnswerCell() {
-        let sut = makeSUT( answers: [PresentableAnswer(isCorrect: false)])
+        let sut = makeSUT( answers: [makeAnswer(isCorrect: false)])
 
         let cell = sut.tableView.cell(at: 0) as? WrongAnswerCell
 
@@ -47,7 +83,10 @@ class ResultViewControllerTest: XCTestCase {
     }
     
     func makeDummyAnswer() -> PresentableAnswer {
-        return  PresentableAnswer(isCorrect: false)
+        return  makeAnswer( isCorrect: false)
     }
 
+    func makeAnswer(question: String = "",answer:String = "",isCorrect: Bool) -> PresentableAnswer {
+        return PresentableAnswer(answer: answer, question: question, isCorrect: isCorrect)
+    }
 }

@@ -11,6 +11,8 @@
 		FA68B6BB25D685D40019BD33 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68B6BA25D685D40019BD33 /* ResultViewController.swift */; };
 		FA68B6CB25D687760019BD33 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA68B6CA25D687760019BD33 /* ResultViewController.xib */; };
 		FA68B6D125D6C8F70019BD33 /* TableViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68B6D025D6C8F60019BD33 /* TableViewHelpers.swift */; };
+		FA691BDF25D904D6009027C9 /* CorrectAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA691BDE25D904D6009027C9 /* CorrectAnswerCell.xib */; };
+		FA691BE325D915D0009027C9 /* WrongAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA691BE225D915D0009027C9 /* WrongAnswerCell.xib */; };
 		FAC63C7E25C81376009A675F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC63C7D25C81376009A675F /* AppDelegate.swift */; };
 		FAC63C8025C81376009A675F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC63C7F25C81376009A675F /* SceneDelegate.swift */; };
 		FAC63C8725C81380009A675F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC63C8625C81380009A675F /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 		FA68B6BA25D685D40019BD33 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		FA68B6CA25D687760019BD33 /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		FA68B6D025D6C8F60019BD33 /* TableViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelpers.swift; sourceTree = "<group>"; };
+		FA691BDE25D904D6009027C9 /* CorrectAnswerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CorrectAnswerCell.xib; sourceTree = "<group>"; };
+		FA691BE225D915D0009027C9 /* WrongAnswerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WrongAnswerCell.xib; sourceTree = "<group>"; };
 		FAC63C7A25C81376009A675F /* QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC63C7D25C81376009A675F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC63C7F25C81376009A675F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				FAC63CBD25C8169B009A675F /* QuestionViewController.xib */,
 				FA68B6BA25D685D40019BD33 /* ResultViewController.swift */,
 				FA68B6CA25D687760019BD33 /* ResultViewController.xib */,
+				FA691BDE25D904D6009027C9 /* CorrectAnswerCell.xib */,
+				FA691BE225D915D0009027C9 /* WrongAnswerCell.xib */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -192,8 +198,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAC63C8A25C81380009A675F /* LaunchScreen.storyboard in Resources */,
+				FA691BE325D915D0009027C9 /* WrongAnswerCell.xib in Resources */,
 				FAC63C8725C81380009A675F /* Assets.xcassets in Resources */,
 				FAC63CBE25C8169B009A675F /* QuestionViewController.xib in Resources */,
+				FA691BDF25D904D6009027C9 /* CorrectAnswerCell.xib in Resources */,
 				FA68B6CB25D687760019BD33 /* ResultViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

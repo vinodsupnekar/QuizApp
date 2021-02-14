@@ -11,7 +11,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -19,12 +18,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowscene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowscene)
-        let viewController =  QuestionViewController(question: "A Question", options: ["Option 1","Option 2"]) {
-        print($0)
-        }
+        
+        
+//        let viewController =  QuestionViewController(question: "A Question", options: ["Option 1","Option 2"]) {
+//        print($0)
+//        }
+//        _ = viewController.view
+//        viewController.tableView.allowsMultipleSelection = false
+        
+        let viewController =  ResultViewController(summary: "You got 1/2 correct", answers: [PresentableAnswer(answer: "zzz zzz zzz zzz  asas asasasasasas ", wrongAnswer: "asas rrrr rrrrrrrr rrrr rrrr rrrr rrrr rrrrrrrr rrrr rrrr", question: "Do uo kno m zzz zzz zzz zzz zzz?"),PresentableAnswer(answer: "asas asasasasasas asas asas asasasasasas", wrongAnswer: nil, question: "Do u lv m? zzz ddd zzzzzzzzzzzzzzzzzzzzzzzzzzz")])
         _ = viewController.view
-        viewController.tableView.allowsMultipleSelection = false
-
+        
         let navigation = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigation
         
